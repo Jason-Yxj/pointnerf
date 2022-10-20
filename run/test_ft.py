@@ -322,7 +322,7 @@ def main():
     test_opt = copy.deepcopy(opt)
     test_opt.is_train = False
     test_opt.random_sample = 'no_crop'
-    test_opt.random_sample_size = min(48, opt.random_sample_size)
+    test_opt.random_sample_size = min(128, opt.random_sample_size)
     test_opt.batch_size = 1
     test_opt.n_threads = 0
     test_opt.prob = 0
