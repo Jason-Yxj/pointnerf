@@ -2,12 +2,12 @@
 
 nrCheckpoint="/root/autodl-tmp/pointnerf/checkpoints"
 nrDataRoot="/root/autodl-tmp/pointnerf/data_src"
-name='scene101'
+name='scene000'
 
 resume_iter=best #latest
 
 data_root="${nrDataRoot}/scannet/scans/"
-scan="scene0101_04"
+scan="scene0000_00"
 
 load_points=2
 feat_grad=1
@@ -113,7 +113,7 @@ lr_policy="iter_exponential_decay"
 lr_decay_iters=1000000
 lr_decay_exp=0.1
 
-gpu_ids='1'
+gpu_ids='0'
 
 checkpoints_dir="${nrCheckpoint}/scannet/"
 resume_dir="${nrCheckpoint}/init/dtu_dgt_d012_img0123_conf_agg2_32_dirclr20"
