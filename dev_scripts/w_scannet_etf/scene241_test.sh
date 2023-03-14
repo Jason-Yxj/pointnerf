@@ -1,11 +1,11 @@
 #!/bin/bash
 
-nrCheckpoint="/root/autodl-tmp/pointnerf/checkpoints"
-nrDataRoot="/root/autodl-tmp/pointnerf/data_src"
+nrCheckpoint="/cwang/home/yxj/Project/pointnerf/checkpoints"
+nrDataRoot="/cwang/home/yxj/datasets"
 name='scene241'
 
 resume_iter=200000 # 20000 #latest
-data_root="${nrDataRoot}/scannet/scans/"
+data_root="${nrDataRoot}/scannet/scans_test_processed_for_pointnerf/"
 scan="scene0241_01"
 normview=0
 edge_filter=10 # pixels crop out at image edge
