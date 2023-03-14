@@ -296,17 +296,17 @@ class ScannetFtDataset(BaseDataset):
         self.image_paths = [f for f in os.listdir(colordir) if os.path.isfile(os.path.join(colordir, f))]
         self.image_paths = [os.path.join(self.data_dir, self.scan, "exported/color/{}.jpg".format(i)) for i in range(len(self.image_paths))]
         self.all_id_list = self.filter_valid_id(list(range(len(self.image_paths))))
-        # if len(self.all_id_list) > 2900: # neural point-based graphics' configuration
-        #     self.test_id_list = self.all_id_list[::100]
-        #     self.train_id_list = [self.all_id_list[i] for i in range(len(self.all_id_list)) if (((i % 100) > 19) and ((i % 100) < 81 or (i//100+1)*100>=len(self.all_id_list)))]
-        # else:  # nsvf configuration
-        #     step=5
-        #     self.train_id_list = self.all_id_list[::step]
-        #     self.test_id_list = [self.all_id_list[i] for i in range(len(self.all_id_list)) if (i % step) !=0] if self.opt.test_num_step != 1 else self.all_id_list
+        if len(self.all_id_list) > 2900: # neural point-based graphics' configuration
+            self.test_id_list = self.all_id_list[::100]
+            self.train_id_list = [self.all_id_list[i] for i in range(len(self.all_id_list)) if (((i % 100) > 19) and ((i % 100) < 81 or (i//100+1)*100>=len(self.all_id_list)))]
+        else:  # nsvf configuration
+            step=5
+            self.train_id_list = self.all_id_list[::step]
+            self.test_id_list = [self.all_id_list[i] for i in range(len(self.all_id_list)) if (i % step) !=0] if self.opt.test_num_step != 1 else self.all_id_list
 
-        step=10
-        self.train_id_list = self.all_id_list[::step]
-        self.test_id_list = [self.all_id_list[i] for i in range(len(self.all_id_list)) if (i % step) !=0] if self.opt.test_num_step != 1 else self.all_id_list
+        # step=10
+        # self.train_id_list = self.all_id_list[::step]
+        # self.test_id_list = [self.all_id_list[i] for i in range(len(self.all_id_list)) if (i % step) !=0] if self.opt.test_num_step != 1 else self.all_id_list
 
         print("all_id_list",len(self.all_id_list))
         print("test_id_list",len(self.test_id_list), self.test_id_list)
